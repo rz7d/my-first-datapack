@@ -1,1 +1,1 @@
-execute at @s positioned ^ ^ ^0.25 run tp ~ ~ ~
+execute at @s positioned ^ ^ ^1 run tp ~ ~ ~
