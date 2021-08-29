@@ -1,1 +1,0 @@
-function system:spells/main
