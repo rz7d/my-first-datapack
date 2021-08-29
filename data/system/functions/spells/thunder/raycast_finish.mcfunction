@@ -13,7 +13,7 @@ execute store result entity @s Pos[0] double 0.1 run scoreboard players get PosX
 execute store result entity @s Pos[2] double 0.1 run scoreboard players get PosZ ScoreSpellWall
 
 # 回転を取得 → 設定する
-data modify entity @s Rotation[1] set value 0F
+# data modify entity @s Rotation[1] set value 0F
 execute store result score Direction ScoreSpellWall run data get entity @s Rotation[0] 1
 execute store result score Yaw ScoreSpellWall run data get entity @s Rotation[1] 10
 scoreboard players add Yaw ScoreSpellWall 1
@@ -40,3 +40,5 @@ data modify entity @s PortalCooldown set value 80
 
 # clean-up
 execute at @s run kill @e[tag=WallRayTrail,sort=nearest,limit=1]
+
+say @a @s
