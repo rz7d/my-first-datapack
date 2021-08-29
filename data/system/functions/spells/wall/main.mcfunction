@@ -1,6 +1,5 @@
-scoreboard players set @s CastDetector1 0
 # @s = Player
-scoreboard players reset @s CastDetector
+scoreboard players set @s CastDetector 0
 
 tag @s add CasterWall
 execute at @s run playsound minecraft:entity.snowball.throw player @a ~ ~ ~ 1 1

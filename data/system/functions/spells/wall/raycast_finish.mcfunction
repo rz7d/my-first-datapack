@@ -3,13 +3,10 @@ playsound minecraft:block.snow.place block @a ~ ~ ~ 1
 execute at @s align xyz run tp ~ ~ ~
 
 execute store result score PosX ScoreSpellWall run data get entity @s Pos[0] 10
-# execute store result score PosY ScoreSpellWall run data get entity @s Pos[1] 10
 execute store result score PosZ ScoreSpellWall run data get entity @s Pos[2] 10
 scoreboard players add PosX ScoreSpellWall 5
-# scoreboard players add PosY ScoreSpellWall 5
 scoreboard players add PosZ ScoreSpellWall 5
 execute store result entity @s Pos[0] double 0.1 run scoreboard players get PosX ScoreSpellWall
-# execute store result entity @s Pos[1] double 0.1 run scoreboard players get PosY ScoreSpellWall
 execute store result entity @s Pos[2] double 0.1 run scoreboard players get PosZ ScoreSpellWall
 
 # 回転を取得 → 設定する
