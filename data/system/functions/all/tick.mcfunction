@@ -3,7 +3,7 @@ function system:ray/_tick
 
 
 # User Calls
-function system:spells/wall/_tick
+function system:spells/_tick
 
 
 # Debug: Kill immature entities

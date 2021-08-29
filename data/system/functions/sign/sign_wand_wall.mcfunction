@@ -1,0 +1,1 @@
+give @s minecraft:oak_sign{display: {Lore: ['"wand_wall"']}, BlockEntityTag: {id: "minecraft:sign", Color: "black", Text1: '{"text":""}', Text2: '{"text": "クリックで杖を入手", "clickEvent": {"action": "run_command","value": "function system:wands/wand_wall"}}', Text3: '{"text":""}', Text4: '{"text":""}'}}
