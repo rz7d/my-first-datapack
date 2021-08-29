@@ -1,1 +1,1 @@
-summon minecraft:armor_stand ~ ~ ~ {PortalCooldown:10,Marker:true,Invulnerable:1b,NoGravity:true,Tags:[Ray,RotateSync]}
+summon minecraft:armor_stand ~ ~ ~ {Passengers:[{id:"minecraft:snowball"}],PortalCooldown:10,Marker:true,Invulnerable:true,NoGravity:true,Invisible:true,Tags:[Ray,RotateSync,RayTrailable],Silent:true}
