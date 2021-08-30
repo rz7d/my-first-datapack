@@ -4,6 +4,7 @@ function system:spells/_load
 function system:spells/wall/_load
 
 scoreboard objectives add Constants dummy
+scoreboard players set #0 Constants 0
 scoreboard players set #2 Constants 2
 scoreboard players set #5 Constants 5
 scoreboard players set #8 Constants 8

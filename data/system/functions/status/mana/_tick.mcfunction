@@ -1,19 +1,20 @@
 # Tier 0 (アクセサリ持ってない人)
 execute as @a[nbt={Inventory:[{Slot: 17b, tag: {ManaAccessory: {}}}]}] run tag @s add HasManaAccessory
 
-execute as @a[tag=!HasManaAccessory] run scoreboard players set @s ManaRegen 1
+scoreboard players set @a ManaRegen 1
 execute as @a[tag=!HasManaAccessory] run scoreboard players set @s ManaRegenWait 60
 
 # {tag: {ManaAccessory: {"Tier": 1, "Timer": 45}
 # {tag: {ManaAccessory: {"Tier": 2, "Timer": 30}
 # {tag: {ManaAccessory: {"Tier": 3, "Timer": 15}
 # {tag: {ManaAccessory: {"Tier": 4, "Timer": 5, "RegenAdvantage": 2}
-execute as @a[tag=HasManaAccessory] store result score @s ManaRegenWait run data get entity @s Inventory[{Slot: 17b}].tag.ManaAccessory.Timer 1
+execute as @a[tag=HasManaAccessory] store result score @s ManaRegenWait run data get entity @s Inventory[{Slot: 17b}].tag.ManaAccessory.RegenInterval 1
+
 execute as @a[tag=HasManaAccessory] store result score @s ManaRegenPercent run data get entity @s Inventory[{Slot: 17b}].tag.ManaAccessory.RegenAdvantage 1
-execute as @a[tag=HasManaAccessory] run scoreboard players set @s ManaRegenDivider 100
-execute as @a[tag=HasManaAccessory] run scoreboard players operation @s ManaRegenDivider /= @s ManaRegenPercent
-execute as @a[tag=HasManaAccessory] run scoreboard players operation @s ManaRegen = @s ManaMax
-execute as @a[tag=HasManaAccessory] run scoreboard players operation @s ManaRegen /= @s ManaRegenDivider
+execute as @a[tag=HasManaAccessory] if score @s ManaRegenPercent > #0 Constants run scoreboard players set @s ManaRegenDivider 100
+execute as @a[tag=HasManaAccessory] if score @s ManaRegenPercent > #0 Constants run scoreboard players operation @s ManaRegenDivider /= @s ManaRegenPercent
+execute as @a[tag=HasManaAccessory] if score @s ManaRegenPercent > #0 Constants run scoreboard players operation @s ManaRegen = @s ManaMax
+execute as @a[tag=HasManaAccessory] if score @s ManaRegenPercent > #0 Constants run scoreboard players operation @s ManaRegen /= @s ManaRegenDivider
 
 #ぶらえん
 #ManaがMaxより低い場合 ManaTimer +1
