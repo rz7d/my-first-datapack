@@ -1,4 +1,4 @@
-execute as @a[scores={CastDetector=1..},nbt={SelectedItem: {tag: {spell: "wall"}}}] at @s run function system:spells/wall/main
+execute as @a[scores={CastDetector=1..},nbt={SelectedItem: {tag: {Spell: {Name: "Wall"}}}}] at @s run function system:spells/wall/main
 
 execute as @e[tag=WallRay,tag=Ray] at @s run function system:spells/wall/ray/moving
 execute as @e[tag=WallRay,tag=RayTimedOut] at @s run function system:spells/wall/ray/finished

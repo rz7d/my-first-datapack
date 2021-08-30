@@ -19,21 +19,17 @@ scoreboard players add Yaw ScoreSpellWall 90
 
 # 0 ~ 10 (-90 ~ -80), 170 ~ 180 (+80 ~ +90)
 # 10 ~ 170 の範囲に clamp する
-scoreboard players operation Yaw ScoreSpellWall < #10 ScoreSpellWall
-scoreboard players operation Yaw ScoreSpellWall > #170 ScoreSpellWall
+scoreboard players operation Yaw ScoreSpellWall < #10 Constants
+scoreboard players operation Yaw ScoreSpellWall > #170 Constants
 
 scoreboard players operation Up ScoreSpellWall = Yaw ScoreSpellWall
-scoreboard players operation Up ScoreSpellWall -= #170 ScoreSpellWall
+scoreboard players operation Up ScoreSpellWall -= #170 Constants
 
 
-scoreboard players operation Direction ScoreSpellWall /= #45 ScoreSpellWall
-scoreboard players remove Direction ScoreSpellWall 1
-# scoreboard players operation Direction ScoreSpellWall %= #8 ScoreSpellWall
-# scoreboard players add Direction ScoreSpellWall 1
-# scoreboard players operation Direction ScoreSpellWall /= #2 ScoreSpellWall
-# scoreboard players operation Direction ScoreSpellWall *= #90 ScoreSpellWall
-# execute store result entity @s Rotation[0] float 1 run scoreboard players get Direction ScoreSpellWall
-execute store result entity @s Rotation[0] float 45 run scoreboard players get Direction ScoreSpellWall
+scoreboard players operation Direction ScoreSpellWall /= #45 Constants
+scoreboard players operation Direction ScoreSpellWall %= #8 Constants
+scoreboard players operation Direction ScoreSpellWall /= #2 Constants
+execute store result entity @s Rotation[0] float 90 run scoreboard players get Direction ScoreSpellWall
 
 execute at @s run tp ~ ~ ~
 

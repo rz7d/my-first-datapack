@@ -1,8 +1,6 @@
-# Library Calls
-function system:ray/_tick
-
-
 # User Calls
+function system:timer/_tick
+function system:status/_tick
 function system:spells/_tick
 
 

@@ -1,0 +1,1 @@
+give @s minecraft:oak_sign{display: {Lore: ['"/give Wand (Empty)"']}, BlockEntityTag: {id: "minecraft:sign", Color: "black", Text1: '{"text":""}', Text2: '{"text": "クリックで杖を入手", "clickEvent": {"action": "run_command","value": "function system:wands/give_wand_empty"}}', Text3: '{"text":"空の杖"}', Text4: '{"text":""}'}}
