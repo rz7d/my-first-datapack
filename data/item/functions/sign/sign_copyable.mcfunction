@@ -1,0 +1,1 @@
+give @s minecraft:oak_sign{display: {Lore: ['"Morphing!"']}, BlockEntityTag: {id: "minecraft:sign", Color: "black", Text1: '{"text":""}', Text2: '{"text": "クリックで入手", "clickEvent": {"action": "run_command","value": "execute as @s[nbt={SelectedItem: {}}] function item:sign/sign_copyable_handler"}}', Text3: '{"text":""}', Text4: '{"text":""}'}}

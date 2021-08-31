@@ -10,6 +10,10 @@
             {
               "function": "set_nbt",
               "tag": "{ManaAccessory: {Tier: 3, RegenInterval: 2},display:{Name:'\"Overclocked Mana Booster\"'}}"
+            },
+            {
+              "function": "set_count",
+              "count": 1
             }
           ]
         }
