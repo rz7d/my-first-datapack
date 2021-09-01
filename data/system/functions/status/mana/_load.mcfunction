@@ -1,8 +1,8 @@
 # プレイヤーの Mana の現在値
-scoreboard objectives add Mana dummy
+scoreboard objectives add StatusMana dummy
 
 # プレイヤーの Mana の最大値
-scoreboard objectives add ManaMax dummy
+scoreboard objectives add StatusManaMax dummy
 
 # 呪文を唱えるときにその都度設定する Mana 必要量
 scoreboard objectives add ManaReq dummy

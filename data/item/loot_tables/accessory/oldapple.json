@@ -1,0 +1,45 @@
+{
+    "pools": [
+        {
+            "rolls": {
+                "min": 1,
+                "max": 1
+            },
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:apple",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "set_nbt",
+                            "tag": "{Price:40,Accessory:[{Rolled:false,Rare:1,Min:[{HP:15,MP:0,ATK:0,DEF:0,AP:0}],Max:[{HP:20,MP:0,ATK:0,DEF:0,AP:0}]}],HP:0,MP:0,ATK:0,DEF:0,AP:0,Unbreakable:1,display:{Name:'[{\"text\":\"りんご\",\"color\":\"white\",\"italic\":false}]',Lore:['[{\"text\":\"体力❤ : 0\",\"italic\":false,\"color\":\"light_purple\"}]','[{\"text\":\"魔力✺ : 0\",\"italic\":false,\"color\":\"aqua\"}]','[{\"text\":\"攻撃力✦ : 0\",\"italic\":false,\"color\":\"red\"}]','[{\"text\":\"防御✙ : 0\",\"italic\":false,\"color\":\"white\"}]','[{\"text\":\"魔法攻撃✽ : 0\",\"italic\":false,\"color\":\"#acffff\"}]','[{\"text\":\"売値 : \",\"italic\":false,\"color\":\"white\"},{\"text\":\"20 エメ\",\"italic\":false,\"color\":\"green\"}]','[{\"text\":\"タイプ : \",\"italic\":false,\"color\":\"white\"},{\"text\":\"アクセサリー\",\"italic\":false,\"color\":\"#fbf56c\"}]']},HideFlags:2}"
+                        },
+                        {
+                            "function": "set_attributes",
+                            "modifiers": [
+                                {
+                                    "attribute": "generic.max_health",
+                                    "name": "HP",
+                                    "slot": "head",
+                                    "operation": "addition",
+                                    "amount": {
+                                        "min": 15,
+                                        "max": 20.99
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "function": "set_count",
+                            "count": {
+                                "min": 1,
+                                "max": 1
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

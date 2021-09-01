@@ -5,11 +5,11 @@
             "entries": [
                 {
                     "type": "item",
-                    "name": "minecraft:stone",
+                    "name": "minecraft:glass",
                     "functions": [
                         {
                             "function": "set_nbt",
-                            "tag": "{ TradingData: { SellPrice: 20 }, EquipmentData: [{ Type: 'Accessory', Bonus: { Health: 0, Mana: 0 }, Effects: [{}], RollData: { IsRolled: false, Bonus: { Health: { Max: 25, Min: 15 }, Mana: { Max: 300, Min: 1 }}, Effects: [{ Type: 'Mana', Value: { RegenInterval: { Min: 17, Max: 21 }, RegenAmount: { Value: 1 }, RegenScaledByCapacity: { Value: true } } }]}}, { Type: 'Weapon', BaseDamage: 3000 }]}"
+                            "tag": "{ TradingData: { SellPrice: 20 }, EquipmentData: [{ Type: 'Accessory', Bonus: { Health: 2500, Mana: 0, Attack: 0, Defense: 0, Intelligence: 0 }, Effects: [{}], RollData: { IsRolled: false, Bonus: { Health: { Max: 25, Min: 15 }, Mana: { Max: 300, Min: 1 }, Attack: { Max: 3000, Min: 300 }, Defense: { Max: 10, Min: 0 }, Intelligence: { Max: 999, Min: 0 }}, Effects: [{ Type: 'Mana', Value: { RegenInterval: { Min: 17, Max: 21 }, RegenAmount: { Value: 1 }, RegenScaledByCapacity: { Value: true } } }]}}, { Type: 'Weapon', BaseDamage: 3000 }]}"
                         },
                         {
                             "function": "set_count",

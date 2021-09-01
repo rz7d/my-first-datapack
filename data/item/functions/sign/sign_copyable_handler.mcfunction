@@ -2,5 +2,4 @@
 execute store result block ~ ~ ~ ItemTemplate
 data merge block ~ ~ ~ {}
 
-give @s 
-
+give @s

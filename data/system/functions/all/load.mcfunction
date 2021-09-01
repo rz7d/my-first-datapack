@@ -1,7 +1,6 @@
 function system:timer/_load
 function system:status/_load
 function system:spells/_load
-function system:spells/wall/_load
 
 scoreboard objectives add Constants dummy
 scoreboard players set #0 Constants 0
