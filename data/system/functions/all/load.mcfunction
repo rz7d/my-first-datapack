@@ -17,4 +17,5 @@ scoreboard players set #10 Constants 10
 scoreboard players set #20 Constants 20
 scoreboard players set #45 Constants 45
 scoreboard players set #90 Constants 90
+scoreboard players set #100 Constants 100
 scoreboard players set #180 Constants 180
