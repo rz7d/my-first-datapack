@@ -1,5 +1,5 @@
 # ^1 の部分がそのままスピードになる
-# data merge entity @s {SavedMotion: [0d, 0d, 0d]}
+data merge entity @s {SavedMotion: [0d, 0d, 0d]}
 execute at @s positioned ^ ^ ^1 run tp @e[tag=Cursor] ~ ~ ~
 execute store result score CurrentPosX ScoreSpellFire run data get entity @s Pos[0] 10
 execute store result score CurrentPosY ScoreSpellFire run data get entity @s Pos[1] 10
