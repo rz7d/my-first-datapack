@@ -9,6 +9,6 @@ execute as @e[tag=FireballTrail,nbt={PortalCooldown:0}] run kill @s
 
 execute as @e[tag=Fireball] store result entity @s Motion[0] double 0.01 run scoreboard players get @s NextVelocityX
 execute as @e[tag=Fireball] store result entity @s Motion[2] double 0.01 run scoreboard players get @s NextVelocityZ
-execute as @e[tag=Fireball] run data modify entity @s Motion[1] set value -1d
 
+# 1だと動かない
 execute as @e[tag=Fireball,nbt={OnGround:true}] run data modify entity @s Motion[1] set value 0.5d
