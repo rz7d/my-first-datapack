@@ -1,11 +1,11 @@
-# 受けたダメージ - DEFENSE/2 = 基本ダメージ
+# 受けたダメージ - StatusDefense/2 = 基本ダメージ
 # 基本ダメージ ±乱数幅 = 確定ダメージ
 #              ┗乱数幅 = 基本ダメージ/25 + 10
 
-# Defense = pDamageCalc1
-execute store result score @s pDamageCalc1 run scoreboard players get @s Defense
+# StatusDefense = pDamageCalc1
+execute store result score @s pDamageCalc1 run scoreboard players get @s StatusDefense
 
-# 受けたダメージ - DEFENSE/2 = 基本ダメージ
+# 受けたダメージ - StatusDefense/2 = 基本ダメージ
 scoreboard players operation @s pDamageCalc1 /= #2 Constants
 scoreboard players operation @s Damage_Res -= @s pDamageCalc1
 
@@ -33,7 +33,7 @@ execute as @s[scores={pDamageCalc1=1}] run scoreboard players operation @s Rando
 
 ### ダメージ数の確定
 scoreboard players operation @s Damage_Res += @s Random
-execute as @s[scores={Defense=..-1}] run scoreboard players operation @s Damage_Res *= #3 Constants
+execute as @s[scores={StatusDefense=..-1}] run scoreboard players operation @s Damage_Res *= #3 Constants
 # 確定した後にダメージが0以下の場合5にする (1=0.1dmg)
 execute as @s[scores={Damage_Res=..4}] run scoreboard players set @s Damage_Res 5
 # クリティカルの判定

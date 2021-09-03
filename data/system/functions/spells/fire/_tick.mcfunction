@@ -1,7 +1,22 @@
 execute as @a[scores={CastDetector=1..},nbt={SelectedItem: {tag: {Spell: {Name: "Fire"}}}}] at @s run function system:spells/fire/main
 
+# TODO: おかしい (FireballTrackerの生存時間はFireballと同じじゃないといけないけど個別に消してるのであとからバグる)
 execute as @e[tag=Fireball,nbt={PortalCooldown:0}] run kill @s
-execute as @e[tag=FireballTrail,nbt={PortalCooldown:0}] run kill @s
+execute as @e[tag=FireballTracker,nbt={PortalCooldown:0}] run kill @s
+
+
+# for (fireball : fireballs) {
+#     for (tracker : trackers) {
+#         if (tracker.uuid0 == fireball.uuid0
+#         && tracker.uuid1 == fireball.uuid1
+#         && tracker.uuid2 == fireball.uuid2
+#         && tracker.uuid3 == fireball.uuid3) {
+#             // relationship: OK
+#             return tracker;
+#         }
+#     }
+# }
+execute as @e[tag=Fireball] run function system:spells/fire/relation_tracker
 
 # execute as @e[tag=Fireball] at @s run particle snowflake ~ ~ ~ 0 0 0 0.1 1
 

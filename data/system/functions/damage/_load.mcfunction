@@ -15,8 +15,7 @@ scoreboard objectives add TrueDamage dummy
 #scoreboard objectives add Mark minecraft.custom:minecraft.damage_dealt
 
 # 殴った時の相手のHP表示用
-#scoreboard objectives add MobHealth dummy
+scoreboard objectives add MobHealth dummy
 
 # ダメージ増加の計算用
-#scoreboard objectives add AttackDamage dummy
-#scoreboard objectives add MeleeRandom dummy
+scoreboard objectives add MeleeRandom dummy

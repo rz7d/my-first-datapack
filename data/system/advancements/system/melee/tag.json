@@ -1,0 +1,22 @@
+{
+    "criteria": {
+        "melee_dealt": {
+            "trigger": "minecraft:player_hurt_entity",
+            "conditions": {
+                "damage":{
+                "type": {
+                    "is_projectile": false
+                }
+            }
+        }
+    }
+},
+    "requirements": [
+        [
+            "melee_dealt"
+        ]
+    ],
+    "rewards": {
+        "function": "system:damage/mob/_tagmelee"
+    }
+}
