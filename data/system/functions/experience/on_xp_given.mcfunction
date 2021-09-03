@@ -19,6 +19,8 @@ scoreboard players operation @s ExpGiven += x100 ExpGiven
 
 scoreboard players operation LevelPrev ExpGiven = @s Level
 
+scoreboard players operation @s ExpTotal += @s ExpGiven
+
 function system:experience/consume_xp
 
 scoreboard players operation @s ExpNeeded -= @s ExpGiven
