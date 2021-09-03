@@ -4,8 +4,8 @@ scoreboard objectives add ExpNeeded dummy {"text": "次のレベルまで残り"
 # 累計
 scoreboard objectives add ExpTotal dummy
 
-# TODO: どうにかする
-scoreboard objectives add ExpGiven dummy
-
 # レベル
 scoreboard objectives add Level dummy {"text": "レベル", "color": "yellow"}
+
+# 取得した経験値 (一時保存)
+scoreboard objectives add ExpGiven dummy

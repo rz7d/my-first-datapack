@@ -1,11 +1,11 @@
-scoreboard objectives add CalcAcc1HP dummy
-scoreboard objectives add CalcAcc1MP dummy
-scoreboard objectives add CalcAcc1ATK dummy
-scoreboard objectives add CalcAcc1DEF dummy
-scoreboard objectives add CalcAcc1INT dummy
+scoreboard objectives add AccHPNext dummy
+scoreboard objectives add AccMPNext dummy
+scoreboard objectives add AccAtkNext dummy
+scoreboard objectives add AccDefNext dummy
+scoreboard objectives add AccIntNext dummy
 
-scoreboard objectives add CalcAcc1HP2 dummy
-scoreboard objectives add CalcAcc1MP2 dummy
-scoreboard objectives add CalcAcc1ATK2 dummy
-scoreboard objectives add CalcAcc1DEF2 dummy
-scoreboard objectives add CalcAcc1INT2 dummy
+scoreboard objectives add AccHPCurrent dummy
+scoreboard objectives add AccManaCurrent dummy
+scoreboard objectives add AccAtkCurrent dummy
+scoreboard objectives add AccDefCurrent dummy
+scoreboard objectives add AccIntCurrent dummy

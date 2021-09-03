@@ -1,99 +1,100 @@
-# WearAcc1A = Accessory をスロット 1 に置いている人
-# WearAcc1B = ステータス処理済み
-# WearAcc1C = Accessory 変更時の比較
-execute as @a unless data entity @s Inventory[{Slot: 17b}].tag.EquipmentData[{Type: "Accessory"}] run tag @s remove WearAcc1A
-execute as @a[tag=!WearAcc1A] if data entity @s Inventory[{Slot: 17b}].tag.EquipmentData[{Type: "Accessory"}] run tag @s add WearAcc1A
+# HasAccessory = Accessory をスロット 1 に置いている人
+# EffectSaved = ステータス処理済み
+# AccessorySwapped = Accessory 変更時の比較
+execute as @a unless data entity @s Inventory[{Slot: 17b}].tag.EquipmentData[{Type: "Accessory"}] run tag @s remove HasAccessory
+execute as @a[tag=!HasAccessory] if data entity @s Inventory[{Slot: 17b}].tag.EquipmentData[{Type: "Accessory"}] run tag @s add HasAccessory
 # 装備してたら代入する
-execute as @a[tag=WearAcc1A,tag=!WearAcc1B] store result score @s CalcAcc1HP run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Health
-execute as @a[tag=WearAcc1A,tag=!WearAcc1B] store result score @s CalcAcc1MP run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Mana
-execute as @a[tag=WearAcc1A,tag=!WearAcc1B] store result score @s CalcAcc1ATK run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Attack
-execute as @a[tag=WearAcc1A,tag=!WearAcc1B] store result score @s CalcAcc1DEF run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Defense
-execute as @a[tag=WearAcc1A,tag=!WearAcc1B] store result score @s CalcAcc1INT run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Intelligence
+execute as @a[tag=HasAccessory,tag=!EffectSaved] store result score @s AccHPNext run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Health
+execute as @a[tag=HasAccessory,tag=!EffectSaved] store result score @s AccMPNext run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Mana
+execute as @a[tag=HasAccessory,tag=!EffectSaved] store result score @s AccAtkNext run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Attack
+execute as @a[tag=HasAccessory,tag=!EffectSaved] store result score @s AccDefNext run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Defense
+execute as @a[tag=HasAccessory,tag=!EffectSaved] store result score @s AccIntNext run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Intelligence
 
 # 反映
-execute as @a[tag=!WearAcc1B,scores={CalcAcc1HP=1..}] run scoreboard players operation @s StatusHealthMax += @s CalcAcc1HP
-execute as @a[tag=!WearAcc1B,scores={CalcAcc1MP=1..}] run scoreboard players operation @s StatusManaMax += @s CalcAcc1MP
-execute as @a[tag=!WearAcc1B,scores={CalcAcc1ATK=1..}] run scoreboard players operation @s StatusAttack += @s CalcAcc1ATK
-execute as @a[tag=!WearAcc1B,scores={CalcAcc1DEF=1..}] run scoreboard players operation @s StatusDefense += @s CalcAcc1DEF
-execute as @a[tag=!WearAcc1B,scores={CalcAcc1INT=1..}] run scoreboard players operation @s StatusIntelli += @s CalcAcc1INT
+execute as @a[tag=!EffectSaved,scores={AccHPNext=1..}] run scoreboard players operation @s StatusHealthMax += @s AccHPNext
+execute as @a[tag=!EffectSaved,scores={AccMPNext=1..}] run scoreboard players operation @s StatusManaMax += @s AccMPNext
+execute as @a[tag=!EffectSaved,scores={AccAtkNext=1..}] run scoreboard players operation @s StatusAttack += @s AccAtkNext
+execute as @a[tag=!EffectSaved,scores={AccDefNext=1..}] run scoreboard players operation @s StatusDefense += @s AccDefNext
+execute as @a[tag=!EffectSaved,scores={AccIntNext=1..}] run scoreboard players operation @s StatusIntelli += @s AccIntNext
 
 # 負の値
-execute as @a[tag=!WearAcc1B,scores={CalcAcc1HP=..-1}] run scoreboard players operation @s StatusHealthMax += @s CalcAcc1HP
-execute as @a[tag=!WearAcc1B,scores={CalcAcc1MP=..-1}] run scoreboard players operation @s StatusManaMax += @s CalcAcc1MP
-execute as @a[tag=!WearAcc1B,scores={CalcAcc1ATK=..-1}] run scoreboard players operation @s StatusAttack += @s CalcAcc1ATK
-execute as @a[tag=!WearAcc1B,scores={CalcAcc1DEF=..-1}] run scoreboard players operation @s StatusDefense += @s CalcAcc1DEF
-execute as @a[tag=!WearAcc1B,scores={CalcAcc1INT=..-1}] run scoreboard players operation @s StatusIntelli += @s CalcAcc1INT
+execute as @a[tag=!EffectSaved,scores={AccHPNext=..-1}] run scoreboard players operation @s StatusHealthMax += @s AccHPNext
+execute as @a[tag=!EffectSaved,scores={AccMPNext=..-1}] run scoreboard players operation @s StatusManaMax += @s AccMPNext
+execute as @a[tag=!EffectSaved,scores={AccAtkNext=..-1}] run scoreboard players operation @s StatusAttack += @s AccAtkNext
+execute as @a[tag=!EffectSaved,scores={AccDefNext=..-1}] run scoreboard players operation @s StatusDefense += @s AccDefNext
+execute as @a[tag=!EffectSaved,scores={AccIntNext=..-1}] run scoreboard players operation @s StatusIntelli += @s AccIntNext
 
 # ループしないようにする +サウンド
-execute as @a[tag=WearAcc1A,tag=!WearAcc1B] at @s run function system:sound/wear
-execute as @a[tag=WearAcc1A,tag=!WearAcc1B] run tag @s add WearAcc1B
+execute as @a[tag=!EffectSaved,tag=HasAccessory] at @s run function system:sound/wear
+execute as @a[tag=!EffectSaved,tag=HasAccessory] run tag @s add EffectSaved
+
 
 ### 装備を外した場合HPとDEFをもとに戻す
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1HP=1..}] run scoreboard players operation @s StatusHealthMax -= @s CalcAcc1HP
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1MP=1..}] run scoreboard players operation @s StatusManaMax -= @s CalcAcc1MP
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1ATK=1..}] run scoreboard players operation @s StatusAttack -= @s CalcAcc1ATK
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1DEF=1..}] run scoreboard players operation @s StatusDefense -= @s CalcAcc1DEF
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1INT=1..}] run scoreboard players operation @s StatusIntelli -= @s CalcAcc1INT
+execute as @a[tag=!HasAccessory, scores={AccHPNext=1..}] run scoreboard players operation @s StatusHealthMax -= @s AccHPNext
+execute as @a[tag=!HasAccessory, scores={AccMPNext=1..}] run scoreboard players operation @s StatusManaMax -= @s AccMPNext
+execute as @a[tag=!HasAccessory, scores={AccAtkNext=1..}] run scoreboard players operation @s StatusAttack -= @s AccAtkNext
+execute as @a[tag=!HasAccessory, scores={AccDefNext=1..}] run scoreboard players operation @s StatusDefense -= @s AccDefNext
+execute as @a[tag=!HasAccessory, scores={AccIntNext=1..}] run scoreboard players operation @s StatusIntelli -= @s AccIntNext
 
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1HP=..-1}] run scoreboard players operation @s StatusHealthMax -= @s CalcAcc1HP
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1MP=..-1}] run scoreboard players operation @s StatusManaMax -= @s CalcAcc1MP
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1ATK=..-1}] run scoreboard players operation @s StatusAttack -= @s CalcAcc1ATK
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1DEF=..-1}] run scoreboard players operation @s StatusDefense -= @s CalcAcc1DEF
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1INT=..-1}] run scoreboard players operation @s StatusIntelli -= @s CalcAcc1INT
+execute as @a[tag=!HasAccessory, scores={AccHPNext=..-1}] run scoreboard players operation @s StatusHealthMax -= @s AccHPNext
+execute as @a[tag=!HasAccessory, scores={AccMPNext=..-1}] run scoreboard players operation @s StatusManaMax -= @s AccMPNext
+execute as @a[tag=!HasAccessory, scores={AccAtkNext=..-1}] run scoreboard players operation @s StatusAttack -= @s AccAtkNext
+execute as @a[tag=!HasAccessory, scores={AccDefNext=..-1}] run scoreboard players operation @s StatusDefense -= @s AccDefNext
+execute as @a[tag=!HasAccessory, scores={AccIntNext=..-1}] run scoreboard players operation @s StatusIntelli -= @s AccIntNext
 
 # ----------
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1HP=1..}] run scoreboard players set @s CalcAcc1HP 0
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1MP=1..}] run scoreboard players set @s CalcAcc1MP 0
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1ATK=1..}] run scoreboard players set @s CalcAcc1ATK 0
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1DEF=1..}] run scoreboard players set @s CalcAcc1DEF 0
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1INT=1..}] run scoreboard players set @s CalcAcc1INT 0
+execute as @a[tag=!HasAccessory, scores={AccHPNext=1..}] run scoreboard players set @s AccHPNext 0
+execute as @a[tag=!HasAccessory, scores={AccMPNext=1..}] run scoreboard players set @s AccMPNext 0
+execute as @a[tag=!HasAccessory, scores={AccAtkNext=1..}] run scoreboard players set @s AccAtkNext 0
+execute as @a[tag=!HasAccessory, scores={AccDefNext=1..}] run scoreboard players set @s AccDefNext 0
+execute as @a[tag=!HasAccessory, scores={AccIntNext=1..}] run scoreboard players set @s AccIntNext 0
 
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1HP=..-1}] run scoreboard players set @s CalcAcc1HP 0
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1MP=..-1}] run scoreboard players set @s CalcAcc1MP 0
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1ATK=..-1}] run scoreboard players set @s CalcAcc1ATK 0
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1DEF=..-1}] run scoreboard players set @s CalcAcc1DEF 0
-execute as @a[tag=!WearAcc1A, scores={CalcAcc1INT=..-1}] run scoreboard players set @s CalcAcc1INT 0
+execute as @a[tag=!HasAccessory, scores={AccHPNext=..-1}] run scoreboard players set @s AccHPNext 0
+execute as @a[tag=!HasAccessory, scores={AccMPNext=..-1}] run scoreboard players set @s AccMPNext 0
+execute as @a[tag=!HasAccessory, scores={AccAtkNext=..-1}] run scoreboard players set @s AccAtkNext 0
+execute as @a[tag=!HasAccessory, scores={AccDefNext=..-1}] run scoreboard players set @s AccDefNext 0
+execute as @a[tag=!HasAccessory, scores={AccIntNext=..-1}] run scoreboard players set @s AccIntNext 0
 
-execute as @a[tag=!WearAcc1A, tag=WearAcc1B] at @s run function system:sound/remove
-execute as @a[tag=!WearAcc1A, tag=WearAcc1B] run tag @s remove WearAcc1B
+execute as @a[tag=!HasAccessory, tag=EffectSaved] at @s run function system:sound/remove
+execute as @a[tag=!HasAccessory, tag=EffectSaved] run tag @s remove EffectSaved
 
 ### 装備を外さずに付け替えた場合の処理をする
 # 現在の値を取る
-execute as @a[tag=WearAcc1A] store result score @s CalcAcc1HP2 run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Health
-execute as @a[tag=WearAcc1A] store result score @s CalcAcc1MP2 run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Mana
-execute as @a[tag=WearAcc1A] store result score @s CalcAcc1ATK2 run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Attack
-execute as @a[tag=WearAcc1A] store result score @s CalcAcc1DEF2 run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Defense
-execute as @a[tag=WearAcc1A] store result score @s CalcAcc1INT2 run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Intelligence
+execute as @a[tag=HasAccessory] store result score @s AccHPCurrent run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Health
+execute as @a[tag=HasAccessory] store result score @s AccManaCurrent run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Mana
+execute as @a[tag=HasAccessory] store result score @s AccAtkCurrent run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Attack
+execute as @a[tag=HasAccessory] store result score @s AccDefCurrent run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Defense
+execute as @a[tag=HasAccessory] store result score @s AccIntCurrent run data get entity @s Inventory[{Slot:17b}].tag.EquipmentData[{Type: "Accessory"}].Bonus.Intelligence
 
-#現在の値と元の値を比べる
-execute as @a[tag=WearAcc1A] if score @s CalcAcc1HP < @s CalcAcc1HP2 run tag @s add WearAcc1C
-execute as @a[tag=WearAcc1A] if score @s CalcAcc1HP > @s CalcAcc1HP2 run tag @s add WearAcc1C
-execute as @a[tag=WearAcc1A] if score @s CalcAcc1MP < @s CalcAcc1MP2 run tag @s add WearAcc1C
-execute as @a[tag=WearAcc1A] if score @s CalcAcc1MP > @s CalcBootMP2 run tag @s add WearAcc1C
-execute as @a[tag=WearAcc1A] if score @s CalcAcc1ATK < @s CalcAcc1ATK2 run tag @s add WearAcc1C
-execute as @a[tag=WearAcc1A] if score @s CalcAcc1ATK > @s CalcAcc1ATK2 run tag @s add WearAcc1C
-execute as @a[tag=WearAcc1A] if score @s CalcAcc1DEF < @s CalcAcc1DEF2 run tag @s add WearAcc1C
-execute as @a[tag=WearAcc1A] if score @s CalcAcc1DEF > @s CalcAcc1DEF2 run tag @s add WearAcc1C
-execute as @a[tag=WearAcc1A] if score @s CalcAcc1INT < @s CalcAcc1INT2 run tag @s add WearAcc1C
-execute as @a[tag=WearAcc1A] if score @s CalcAcc1INT > @s CalcAcc1INT2 run tag @s add WearAcc1C
+# 現在の値と元の値を比べる
+execute as @a[tag=HasAccessory] if score @s AccHPNext < @s AccHPCurrent run tag @s add AccessorySwapped
+execute as @a[tag=HasAccessory] if score @s AccHPNext > @s AccHPCurrent run tag @s add AccessorySwapped
+execute as @a[tag=HasAccessory] if score @s AccMPNext < @s AccManaCurrent run tag @s add AccessorySwapped
+execute as @a[tag=HasAccessory] if score @s AccMPNext > @s AccManaCurrent run tag @s add AccessorySwapped
+execute as @a[tag=HasAccessory] if score @s AccAtkNext < @s AccAtkCurrent run tag @s add AccessorySwapped
+execute as @a[tag=HasAccessory] if score @s AccAtkNext > @s AccAtkCurrent run tag @s add AccessorySwapped
+execute as @a[tag=HasAccessory] if score @s AccDefNext < @s AccDefCurrent run tag @s add AccessorySwapped
+execute as @a[tag=HasAccessory] if score @s AccDefNext > @s AccDefCurrent run tag @s add AccessorySwapped
+execute as @a[tag=HasAccessory] if score @s AccIntNext < @s AccIntCurrent run tag @s add AccessorySwapped
+execute as @a[tag=HasAccessory] if score @s AccIntNext > @s AccIntCurrent run tag @s add AccessorySwapped
 
 #値が変わっていた場合の処理
-execute as @a[tag=WearAcc1C] run scoreboard players operation @s StatusHealthMax -= @s CalcAcc1HP
-execute as @a[tag=WearAcc1C] run scoreboard players operation @s StatusManaMax -= @s CalcAcc1MP
-execute as @a[tag=WearAcc1C] run scoreboard players operation @s StatusDefense -= @s CalcAcc1DEF
-execute as @a[tag=WearAcc1C] run scoreboard players operation @s StatusIntelli -= @s CalcAcc1INT
-execute as @a[tag=WearAcc1C] run scoreboard players operation @s StatusAttack -= @s CalcAcc1ATK
-execute as @a[tag=WearAcc1C] run scoreboard players operation @s StatusHealthMax += @s CalcAcc1HP2
-execute as @a[tag=WearAcc1C] run scoreboard players operation @s StatusManaMax += @s CalcAcc1MP2
-execute as @a[tag=WearAcc1C] run scoreboard players operation @s StatusDefense += @s CalcAcc1DEF2
-execute as @a[tag=WearAcc1C] run scoreboard players operation @s StatusIntelli += @s CalcAcc1INT2
-execute as @a[tag=WearAcc1C] run scoreboard players operation @s StatusAttack += @s CalcAcc1ATK2
+execute as @a[tag=AccessorySwapped] run scoreboard players operation @s StatusHealthMax -= @s AccHPNext
+execute as @a[tag=AccessorySwapped] run scoreboard players operation @s StatusManaMax -= @s AccMPNext
+execute as @a[tag=AccessorySwapped] run scoreboard players operation @s StatusDefense -= @s AccDefNext
+execute as @a[tag=AccessorySwapped] run scoreboard players operation @s StatusIntelli -= @s AccIntNext
+execute as @a[tag=AccessorySwapped] run scoreboard players operation @s StatusAttack -= @s AccAtkNext
+execute as @a[tag=AccessorySwapped] run scoreboard players operation @s StatusHealthMax += @s AccHPCurrent
+execute as @a[tag=AccessorySwapped] run scoreboard players operation @s StatusManaMax += @s AccManaCurrent
+execute as @a[tag=AccessorySwapped] run scoreboard players operation @s StatusDefense += @s AccDefCurrent
+execute as @a[tag=AccessorySwapped] run scoreboard players operation @s StatusIntelli += @s AccIntCurrent
+execute as @a[tag=AccessorySwapped] run scoreboard players operation @s StatusAttack += @s AccAtkCurrent
 #ループさせないようにする
-execute as @a[tag=WearAcc1C] run scoreboard players operation @s CalcAcc1HP = @s CalcAcc1HP2
-execute as @a[tag=WearAcc1C] run scoreboard players operation @s CalcAcc1MP = @s CalcAcc1MP2
-execute as @a[tag=WearAcc1C] run scoreboard players operation @s CalcAcc1DEF = @s CalcAcc1DEF2
-execute as @a[tag=WearAcc1C] run scoreboard players operation @s CalcAcc1INT = @s CalcAcc1INT2
-execute as @a[tag=WearAcc1C] run scoreboard players operation @s CalcAcc1ATK = @s CalcAcc1ATK2
-execute as @a[tag=WearAcc1C] at @s run function system:useful/sound/wear
-execute as @a[tag=WearAcc1C] run tag @s remove WearAcc1C
+execute as @a[tag=AccessorySwapped] run scoreboard players operation @s AccHPNext = @s AccHPCurrent
+execute as @a[tag=AccessorySwapped] run scoreboard players operation @s AccMPNext = @s AccManaCurrent
+execute as @a[tag=AccessorySwapped] run scoreboard players operation @s AccDefNext = @s AccDefCurrent
+execute as @a[tag=AccessorySwapped] run scoreboard players operation @s AccIntNext = @s AccIntCurrent
+execute as @a[tag=AccessorySwapped] run scoreboard players operation @s AccAtkNext = @s AccAtkCurrent
+execute as @a[tag=AccessorySwapped] at @s run function system:useful/sound/wear
+execute as @a[tag=AccessorySwapped] run tag @s remove AccessorySwapped
 
