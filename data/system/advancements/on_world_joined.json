@@ -5,6 +5,6 @@
         }
     },
     "rewards": {
-        "function": "system:all/on_world_joined"
+        "function": "system:all/_init_player"
     }
 }

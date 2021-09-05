@@ -17,6 +17,6 @@
         ]
     ],
     "rewards": {
-        "function": "system:damage/mob/_tagmelee"
+        "function": "system:status/damage/mob/_tagmelee"
     }
 }
