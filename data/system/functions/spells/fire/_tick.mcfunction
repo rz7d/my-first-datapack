@@ -1,10 +1,9 @@
-# execute as @e[tag=FireballTracker] run data modify entity @s NoGravity set value false
-
 execute as @a[scores={CastDetector=1..},nbt={SelectedItem: {tag: {Spell: {Name: "Fire"}}}}] at @s run function system:spells/fire/main
 
 # TODO: おかしい (FireballTrackerの生存時間はFireballと同じじゃないといけないけど個別に消してるのであとからバグる)
 execute as @e[tag=Fireball,nbt={PortalCooldown:0}] run kill @s
 execute as @e[tag=FireballTracker,nbt={PortalCooldown:0}] run kill @s
+execute as @e[tag=FireballTrail,nbt={PortalCooldown:0}] run kill @s
 
 
 # for (fireball in fireballs) {
@@ -29,32 +28,6 @@ execute as @e[tag=FireballTracker,nbt={PortalCooldown:0}] run kill @s
 #         }
 #     }
 # }
-# @a [YourSong, GolfIt]
-# execute as @a
-# YourSong system:spells/fire/relation_checker
-#               1. じぶんのUUIDをスコアボードに入れる
-#               Entity1 execute as @e[tag=FireballTracker]
-#                   1. UUID ひかく
-#                   2. tp だめ
-#               Entity2 execute as @e[tag=FireballTracker]
-#                   1. UUID ひかく
-#                   2. tp だめ
-#               Entity3 execute as @e[tag=FireballTracker]
-#                   1. UUID ひかく
-#                   2. tp OK
-#               Entity4 execute as @e[tag=FireballTracker]
-#                   1. UUID ひかく
-#                   2. tp だめ
-# GolfIt system:spells/fire/relation_checker
-#               1. じぶんのUUIDをスコアボードに入れる
-#               execute as @e[tag=FireballTracker]
-#                   1. UUID ひかく
-#                   2. tp OK
-# GolfIt system:spells/fire/relation_checker
-#               1. じぶんのUUIDをスコアボードに入れる
-#               execute as @e[tag=FireballTracker]
-#                   1. UUID ひかく
-#                   2. tp OK
 
 
 execute as @e[tag=Fireball] run function system:spells/fire/relation_tracker

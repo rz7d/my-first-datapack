@@ -11,6 +11,8 @@ tag @s remove UUID3Matches
 
 # data modify entity @s[tag=Matched] Motion set from entity @e[tag=Relationship,limit=1] Motion
 
+# Marker: true のとき不要
+# execute as @s[tag=Matched] at @e[tag=Relationship,limit=1] run tp ^ ^-0.9875 ^
 execute as @s[tag=Matched] at @e[tag=Relationship,limit=1] run tp ^ ^ ^
 
 # data modify entity @s[tag=Matched] Pos set from entity @e[tag=Relationship,limit=1] Pos

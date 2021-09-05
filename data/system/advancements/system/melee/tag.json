@@ -3,14 +3,14 @@
         "melee_dealt": {
             "trigger": "minecraft:player_hurt_entity",
             "conditions": {
-                "damage":{
-                "type": {
-                    "is_projectile": false
+                "damage": {
+                    "type": {
+                        "is_projectile": false
+                    }
                 }
             }
         }
-    }
-},
+    },
     "requirements": [
         [
             "melee_dealt"
