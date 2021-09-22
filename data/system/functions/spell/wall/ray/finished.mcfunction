@@ -35,7 +35,7 @@ execute at @s run tp ~ ~ ~
 
 execute store result score Direction ScoreSpellWall run data get entity @s Rotation[0] 1
 
-execute at @s run function system:spells/wall/wall_create
+execute at @s run function system:spell/wall/wall_create
 
 # morph ray as break-timer
 tag @s remove WallRay

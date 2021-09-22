@@ -6,7 +6,7 @@ tag @a[tag=HasExpX1] add HasExp
 tag @a[tag=HasExpX10] add HasExp
 tag @a[tag=HasExpX100] add HasExp
 
-execute as @a[tag=HasExp] run function system:experience/on_xp_given
+execute as @a[tag=HasExp] run function system:status/experience/on_xp_gathered
 
 tag @a[tag=HasExpX1] remove HasExpX1
 tag @a[tag=HasExpX10] remove HasExpX10

@@ -1,3 +1,4 @@
+# Mobダメージ
 execute as @e[type=#minecraft:hostile_mobs,nbt={HurtTime:10s}] run function system:damage/mob/melee
 #execute as @e[type=#system:hostile_mobs,nbt={HurtTime:10s}] run function system:damage_calc/mob/mark
 #execute as @a if entity @s[tag=pBow] run function system:damage_calc/mob/sys/bow
